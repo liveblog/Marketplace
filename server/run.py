@@ -1,6 +1,3 @@
-from eve import Eve
+from app import app
 
-app = Eve()
-
-if __name__ == '__main__':
-    app.run()
+app.run()
