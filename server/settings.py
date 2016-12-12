@@ -10,6 +10,8 @@ MONGO_DBNAME = 'marketplace'
 RESOURCE_METHODS = ['GET', 'POST']
 ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
 
+URL_PREFIX = 'api'
+
 marketers = {
     'resource_methods': ['GET', 'POST', 'DELETE'],
     'public_methods': ['GET'],
