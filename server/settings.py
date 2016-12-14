@@ -12,6 +12,9 @@ ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
 
 URL_PREFIX = 'api'
 
+SENTINEL_MANAGEMENT_USERNAME='S0urcef4bric'
+SENTINEL_MANAGEMENT_PASSWORD='8GS3a9ef3DrNNRZ2'
+
 marketers = {
     'resource_methods': ['GET', 'POST', 'DELETE'],
     'public_methods': ['GET'],

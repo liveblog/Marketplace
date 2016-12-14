@@ -1,6 +1,9 @@
 from eve import Eve
+from app.oauth2 import BearerAuth
+from flask.ext.sentinel import ResourceOwnerPasswordCredentials, oauth
 
-app = Eve(__name__)
+app = Eve(auth=BearerAuth)
+ResourceOwnerPasswordCredentials(app)
 
 if __name__ == '__main__':
     import argparse
@@ -19,6 +22,7 @@ if __name__ == '__main__':
         app_options["use_debugger"] = False
         app_options["use_reloader"] = False
 
-@app.route('/hello', methods=['GET'])
+@app.route('/api/hello', methods=['GET'])
+@oauth.require_oauth()
 def hello_world():
     return 'Hello, World!'
