@@ -38,6 +38,39 @@ marketers = {
     }
 }
 
+blogs = {
+    'schema': {
+        'marketer': {
+            'type': 'objectid',
+            'required': True,
+            'data_relation': {
+                'resource': 'marketers',
+                'field': '_id',
+                'embeddable': True
+            }
+        },
+        'marketer_blog_id': {
+            'type': 'string',
+            'required': True
+        },
+        'title': {
+            'type': 'string',
+            'required': True
+        },
+        'description':  {
+            'type': 'string',
+            'required': True
+        },
+        'picture_url': {
+            'type': 'string'
+        },
+        'public_url': {
+            'type': 'string',
+            'required': True
+        }
+    }
+}
+
 DOMAIN = {
     'marketers': marketers
 }
