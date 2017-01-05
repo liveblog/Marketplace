@@ -1,6 +1,12 @@
 from eve import Eve
 
+# delete a marketer's blogs when marketer is deleted
+def on_delete_item_marketers(item):
+    blogs_collection = app.data.driver.db['blogs']
+    blogs_collection.delete_many({'marketer._id': item['_id']})
+
 app = Eve(__name__)
+app.on_delete_item_marketers += on_delete_item_marketers
 
 if __name__ == '__main__':
     import argparse

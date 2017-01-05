@@ -39,6 +39,8 @@ marketers = {
 }
 
 blogs = {
+    'public_methods': ['GET'],
+    'public_item_methods': ['GET'],
     'schema': {
         'marketer': {
             'type': 'objectid',
@@ -72,5 +74,6 @@ blogs = {
 }
 
 DOMAIN = {
-    'marketers': marketers
+    'marketers': marketers,
+    'blogs': blogs
 }
