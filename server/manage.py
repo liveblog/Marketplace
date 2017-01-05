@@ -1,6 +1,8 @@
 import requests
 from flask_script import Manager
 from app import app
+from requests.exceptions import RequestException
+from requests.packages.urllib3.exceptions import MaxRetryError
 
 manager = Manager(app)
 
@@ -21,11 +23,11 @@ def update_blogs():
             }, params=None, data=None, timeout=5)
 
         except (ConnectionError, RequestException, MaxRetryError):
-            print 'No connection for ' + marketer['url']
+            app.logger.info('No connection for ' + marketer['url'])
             continue
 
         if response.status_code != 200:
-            print 'status code ' + str(response.status_code)
+            app.logger.info('status code ' + str(response.status_code))
             continue
 
         blogs_collection = app.data.driver.db['blogs']
@@ -35,9 +37,7 @@ def update_blogs():
         blog_ids = []
 
         for blog in jsonresponse['_items']:
-            print(blog['_id'])
             blog_ids.append(blog['_id'])
-
             blogs_collection.replace_one(
                 {
                     'marketer': marketer,
