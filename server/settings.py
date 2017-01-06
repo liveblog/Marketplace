@@ -69,6 +69,10 @@ blogs = {
         'public_url': {
             'type': 'string',
             'required': True
+        },
+        'category': {
+            'type': 'string',
+            'default': ''
         }
     }
 }

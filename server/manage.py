@@ -38,6 +38,8 @@ def update_blogs():
 
         for blog in jsonresponse['_items']:
             blog_ids.append(blog['_id'])
+
+            category = blog['category'] if 'category' in blog.keys() else ""
             blogs_collection.replace_one(
                 {
                     'marketer': marketer,
@@ -48,7 +50,8 @@ def update_blogs():
                     'marketer_blog_id': blog['_id'],
                     'title': blog['title'],
                     'description': blog['description'],
-                    'public_url': blog['public_url']
+                    'public_url': blog['public_url'],
+                    'category': category
                 },
                 True
             )

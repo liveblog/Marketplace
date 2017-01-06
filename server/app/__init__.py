@@ -24,7 +24,3 @@ if __name__ == '__main__':
         app_options["debug"] = True
         app_options["use_debugger"] = False
         app_options["use_reloader"] = False
-
-@app.route('/hello', methods=['GET'])
-def hello_world():
-    return 'Hello, World!'
