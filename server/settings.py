@@ -73,6 +73,10 @@ blogs = {
         'category': {
             'type': 'string',
             'default': ''
+        },
+        'start_date': {
+            'type': 'datetime',
+            'default': None
         }
     }
 }
