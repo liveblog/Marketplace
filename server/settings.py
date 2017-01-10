@@ -12,6 +12,10 @@ ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
 
 URL_PREFIX = 'api'
 
+RETURN_MEDIA_AS_BASE64_STRING = False
+RETURN_MEDIA_AS_URL = True
+MEDIA_ENDPOINT = 'media'
+
 marketers = {
     'resource_methods': ['GET', 'POST', 'DELETE'],
     'public_methods': ['GET'],
@@ -34,6 +38,9 @@ marketers = {
         },
         'phone': {
             'type': 'string'
+        },
+        'picture_url': {
+            'type': 'media'
         }
     }
 }
