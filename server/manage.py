@@ -16,7 +16,7 @@ def update_blogs():
         if not url.endswith('/'):
             url = '{}/'.format(url)
 
-        url = '{}marketplace/blogs'.format(url)
+        url = '{}marketed/blogs'.format(url)
         try:
             response = requests.request('GET', url, headers={
                 'Content-Type': 'application/json'
