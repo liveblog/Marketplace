@@ -15,6 +15,11 @@ URL_PREFIX = 'api'
 SENTINEL_MANAGEMENT_USERNAME='S0urcef4bric'
 SENTINEL_MANAGEMENT_PASSWORD='8GS3a9ef3DrNNRZ2'
 
+RETURN_MEDIA_AS_BASE64_STRING = False
+RETURN_MEDIA_AS_URL = True
+MEDIA_ENDPOINT = 'media'
+
+
 marketers = {
     'resource_methods': ['GET', 'POST', 'DELETE'],
     'public_methods': ['GET'],
@@ -37,10 +42,57 @@ marketers = {
         },
         'phone': {
             'type': 'string'
+        },
+        'picture_url': {
+            'type': 'media'
+        }
+    }
+}
+
+blogs = {
+    'public_methods': ['GET'],
+    'public_item_methods': ['GET'],
+    'schema': {
+        'marketer': {
+            'type': 'objectid',
+            'required': True,
+            'data_relation': {
+                'resource': 'marketers',
+                'field': '_id',
+                'embeddable': True
+            }
+        },
+        'marketer_blog_id': {
+            'type': 'string',
+            'required': True
+        },
+        'title': {
+            'type': 'string',
+            'required': True
+        },
+        'description':  {
+            'type': 'string',
+            'required': True
+        },
+        'picture_url': {
+            'type': 'string'
+        },
+        'public_url': {
+            'type': 'string',
+            'required': True
+        },
+        'category': {
+            'type': 'string',
+            'default': ''
+        },
+        'start_date': {
+            'type': 'datetime',
+            'default': None
         }
     }
 }
 
 DOMAIN = {
-    'marketers': marketers
+    'marketers': marketers,
+    'blogs': blogs
 }

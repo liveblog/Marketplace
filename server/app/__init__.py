@@ -2,8 +2,15 @@ from eve import Eve
 from app.oauth2 import BearerAuth
 from flask.ext.sentinel import ResourceOwnerPasswordCredentials, oauth
 
+
+# delete a marketer's blogs when marketer is deleted
+def on_delete_item_marketers(item):
+    blogs_collection = app.data.driver.db['blogs']
+    blogs_collection.delete_many({'marketer._id': item['_id']})
+
 app = Eve(auth=BearerAuth)
 ResourceOwnerPasswordCredentials(app)
+app.on_delete_item_marketers += on_delete_item_marketers
 
 if __name__ == '__main__':
     import argparse
@@ -23,6 +30,6 @@ if __name__ == '__main__':
         app_options["use_reloader"] = False
 
 @app.route('/api/hello', methods=['GET'])
-@oauth.require_oauth()
+#@oauth.require_oauth()
 def hello_world():
     return 'Hello, World!'
