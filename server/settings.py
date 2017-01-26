@@ -1,3 +1,5 @@
+import os
+
 X_DOMAINS = '*'
 X_MAX_AGE = 24 * 3600
 X_HEADERS = ['Content-Type', 'Authorization', 'If-Match']
@@ -12,8 +14,12 @@ ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
 
 URL_PREFIX = 'api'
 
-SENTINEL_MANAGEMENT_USERNAME='S0urcef4bric'
-SENTINEL_MANAGEMENT_PASSWORD='8GS3a9ef3DrNNRZ2'
+def env(variable, fallback_value=None):
+    env_value = os.environ.get(variable, '')
+    return env_value if len(env_value) != 0 else fallback_value
+
+SENTINEL_MANAGEMENT_USERNAME=env('ADMIN_USERNAME', 'admin')
+SENTINEL_MANAGEMENT_PASSWORD=env('ADMIN_PASSWORD', 'admin')
 
 RETURN_MEDIA_AS_BASE64_STRING = False
 RETURN_MEDIA_AS_URL = True
