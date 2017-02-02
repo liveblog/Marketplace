@@ -41,6 +41,7 @@ def update_blogs():
 
             category = blog['category'] if 'category' in blog.keys() else ""
             start_date = blog['start_date'] if 'start_date' in blog.keys() else None
+            picture_url = blog['picture_url'] if 'picture_url' in blog.keys() else None
             blogs_collection.replace_one(
                 {
                     'marketer': marketer,
@@ -54,7 +55,7 @@ def update_blogs():
                     'public_url': blog['public_url'],
                     'category': category,
                     'start_date': start_date,
-                    'picture_url': blog['picture_url']
+                    'picture_url': picture_url
                 },
                 True
             )
