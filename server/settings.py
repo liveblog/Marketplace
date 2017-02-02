@@ -83,7 +83,8 @@ blogs = {
             'required': True
         },
         'picture_url': {
-            'type': 'string'
+            'type': 'string',
+            'nullable': True
         },
         'public_url': {
             'type': 'string',

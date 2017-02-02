@@ -53,7 +53,8 @@ def update_blogs():
                     'description': blog['description'],
                     'public_url': blog['public_url'],
                     'category': category,
-                    'start_date': start_date
+                    'start_date': start_date,
+                    'picture_url': blog['picture_url']
                 },
                 True
             )
