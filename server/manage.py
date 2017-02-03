@@ -44,7 +44,7 @@ def update_blogs():
             picture_url = blog['picture_url'] if 'picture_url' in blog.keys() else None
             blogs_collection.replace_one(
                 {
-                    'marketer': marketer,
+                    'marketer._id': marketer['_id'],
                     'marketer_blog_id': blog['_id']
                 },
                 {
