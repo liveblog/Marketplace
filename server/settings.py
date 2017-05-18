@@ -97,6 +97,10 @@ blogs = {
         'start_date': {
             'type': 'datetime',
             'default': None
+        },
+        'language': {
+            'type': 'string',
+            'default': 'de'
         }
     }
 }
