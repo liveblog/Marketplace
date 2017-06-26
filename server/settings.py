@@ -53,6 +53,9 @@ marketers = {
         },
         'picture_url': {
             'type': 'media'
+        },
+        'description': {
+            'type': 'string'
         }
     }
 }
